@@ -1,0 +1,44 @@
+<!--HTML document to define the layout of the header and the navigation bar-->
+<div id="container">
+    <div id="header">
+    <h1>homteq`</h1>
+    <h2>your home for home tech</h2>
+    <h3><?php echo "London, ".date('d F Y H:i:s');?> </h3>
+    </div>
+    <div id="navigation">
+    <ul>
+	
+	<?php
+	if(isset($_SESSION['userid'])){
+	
+        if($_SESSION['usertype']=='C'){
+		
+     echo "
+	
+	 <li><a href='index.php'>Home Tech</a></li>
+     <li><a href='aboutus.php'>About Us</a></li>
+     <li><a href='logout.php'>Logout</a></li>
+     <li style='float: right'><a href='basket.php'>Smart Basket</a></li>
+	 ";
+	 }
+	 else{
+	
+	if($_SESSION['usertype']=='Adminstrator'){
+	
+	echo "
+	
+	 <li><a href='index.php'>Home Tech</a></li>
+     <li><a href='addproduct.php'>Add Product</a></li>
+     <li><a href='editproduct.php'>Edit Product</a></li>
+     <li><a href=' processorders.php'>Process Orders</a></li>
+     <li style='float: right'><a href='logout.php'>Staff Logout</a></li>
+	 ";
+	
+   }
+  } 
+  }
+
+?>
+ </ul>
+    </div>
+    <div id="content">
